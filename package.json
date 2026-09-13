@@ -7,7 +7,7 @@
     "dev": "concurrently \"vite\" \"npm run backend\"",
     "build": "vite build",
     "preview": "vite preview",
-    "backend": "python -m uvicorn backend.app:app --host 127.0.0.1 --port 8000 --reload",
+    "backend": "python -m uvicorn backend.app:app --host 0.0.0.0 --port 8000",
     "postinstall": "pip install --break-system-packages -r backend/requirements.txt"
   },
   "dependencies": {
