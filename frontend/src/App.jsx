@@ -51,7 +51,7 @@ const serif = "'Source Serif 4', Georgia, serif";
 const sans = "'IBM Plex Sans', system-ui, -apple-system, sans-serif";
 const mono = "'IBM Plex Mono', ui-monospace, monospace";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "";
 
 async function apiFetch(endpoint, options = {}) {
   const url = endpoint.startsWith("http")
