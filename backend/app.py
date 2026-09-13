@@ -38,6 +38,8 @@ if user_site.exists():
 import joblib
 from fastapi import FastAPI, HTTPException, Query, UploadFile, File, Form, Body
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -54,6 +56,16 @@ NORM_PATH = MODEL_DIR / "normalization_stats.json"
 REPORTS_DIR = ROOT / "public" / "reports"
 REGISTRY_PATH = REPORTS_DIR / "registry.json"
 REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+
+# ── Frontend SPA (Vite build output) ─────────────────────────────────────────
+# In Docker: WORKDIR /app → ROOT = /app → DIST_DIR = /app/dist
+# Locally:   ROOT = repo-root           → DIST_DIR = repo-root/dist
+DIST_DIR = ROOT / "dist"
+
+# Startup diagnostic — visible in Render logs
+print(f"[PAIMANA] ROOT      = {ROOT}", flush=True)
+print(f"[PAIMANA] DIST_DIR  = {DIST_DIR}", flush=True)
+print(f"[PAIMANA] index.html exists: {(DIST_DIR / 'index.html').exists()}", flush=True)
 
 app = FastAPI(title="PAIMANA Early-Warning & Admin API", version="0.3.0")
 
@@ -669,8 +681,30 @@ def recompute_project(project_id: str, patch: RecomputeRequest):
     return p
 
 
+# ── Static / SPA serving — registered AFTER all API routes ──────────────────
+# Mount /assets first (Vite puts JS/CSS chunks here) so those requests resolve
+# quickly via StaticFiles without falling through to the SPA catch-all.
+# Then mount "/" with html=True: FastAPI/Starlette serves index.html for any
+# path that doesn't match a previously registered route (including bare "/").
+if DIST_DIR.exists() and (DIST_DIR / "index.html").exists():
+    assets_dir = DIST_DIR / "assets"
+    if assets_dir.exists():
+        app.mount("/assets", StaticFiles(directory=str(assets_dir)), name="assets")
+    app.mount("/", StaticFiles(directory=str(DIST_DIR), html=True), name="spa")
+    print(f"[PAIMANA] SPA static serving enabled from {DIST_DIR}", flush=True)
+else:
+    # Fallback JSON root — makes it obvious in Render logs that dist is missing
+    @app.get("/")
+    def root_fallback():
+        return {
+            "service": "PAIMANA",
+            "status": "API-only mode",
+            "error": f"Frontend build not found at {DIST_DIR}. Run 'npm run build' first.",
+        }
+    print(f"[PAIMANA] WARNING: {DIST_DIR}/index.html not found — serving API-only fallback", flush=True)
+
+
 if __name__ == "__main__":
-    import os
     import uvicorn
 
     port = int(os.environ.get("PORT", "8000"))
