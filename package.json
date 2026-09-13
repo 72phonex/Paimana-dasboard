@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "backend": "python -m uvicorn backend.app:app --host 127.0.0.1 --port 8000 --reload",
-    "postinstall": "npm install --break-system-packages -r backend/requirements.txt"
+    "postinstall": "pip install --break-system-packages -r backend/requirements.txt"
   },
   "dependencies": {
     "lucide-react": "^0.383.0",
