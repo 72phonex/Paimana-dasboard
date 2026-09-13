@@ -1,0 +1,24 @@
+{
+  "name": "paimana-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"npm run backend\"",
+    "build": "vite build",
+    "preview": "vite preview",
+    "backend": "python -m uvicorn backend.app:app --host 127.0.0.1 --port 8000 --reload",
+    "postinstall": "pip install -r backend/requirements.txt"
+  },
+  "dependencies": {
+    "lucide-react": "^0.383.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.12.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.2",
+    "vite": "^5.0.0"
+  }
+}

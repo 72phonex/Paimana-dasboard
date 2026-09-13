@@ -1,0 +1,47 @@
+{
+  "cutoff_year": 2019,
+  "train_rows": 3216,
+  "test_rows": 785,
+  "cost_overrun_mae_pp": 5.605,
+  "delay_probability_auc": 0.9385,
+  "delay_probability_brier": 0.0536,
+  "delay_duration_mae_months": 1.362,
+  "feature_cols": [
+    "ministry",
+    "sector",
+    "region",
+    "project_stage",
+    "land_acquisition_status",
+    "sanctioned_cost_cr",
+    "planned_duration_years",
+    "months_since_sanction",
+    "physical_progress_pct",
+    "financial_progress_pct",
+    "cost_revisions_count",
+    "approval_delay_months",
+    "financing_irregularity_flag",
+    "contractor_track_record_score",
+    "ministry_reporting_compliance_rate",
+    "months_since_last_report",
+    "consecutive_missed_cycles"
+  ],
+  "cat_cols": [
+    "ministry",
+    "sector",
+    "region",
+    "project_stage",
+    "land_acquisition_status"
+  ],
+  "backtest_case": {
+    "project_id": "PAI-02719",
+    "project_name": "Roads Project 02719",
+    "ministry": "Road Transport & Highways",
+    "sanctioned_cost_cr": 325.47,
+    "actual_final_overrun_pct": 66.71,
+    "actual_final_delay_months": 46.9,
+    "model_predicted_overrun_pct": 30.328501538946327,
+    "model_predicted_delay_probability": 0.9999015073413546,
+    "note": "Sanctioned 325 cr; model's out-of-time prediction (30.3% overrun) would have flagged this project as high-risk using only pre-completion features, months before the 66.7% actual overrun was final."
+  },
+  "model_family": "sklearn HistGradientBoosting (swap-in for XGBoost/LightGBM in production)"
+}

@@ -1,0 +1,116 @@
+{
+  "reports": [
+    {
+      "id": "custom_february_2026_1625ae24",
+      "title": "February 2026 Flash Report",
+      "filename": "scored_projects_february_2026.json",
+      "month": "February 2026",
+      "badge": "Adaptive PDF",
+      "purpose": "prediction",
+      "project_count": 1948,
+      "completed_count": 531,
+      "is_active": false,
+      "uploaded_at": "2026-09-13 11:24:18",
+      "ingestion_job_id": "ing_323ec0c5d08e",
+      "sha256": "f29010c2d69ca185c8f36e6d8539d460b4ebe81753994dd21fbe63e057817df9"
+    },
+    {
+      "id": "custom_january_2026_7ff861b1",
+      "title": "January 2026 Flash Report",
+      "filename": "scored_projects_january_2026.json",
+      "month": "January 2026",
+      "badge": "Adaptive PDF",
+      "purpose": "prediction",
+      "project_count": 1702,
+      "completed_count": 443,
+      "is_active": false,
+      "uploaded_at": "2026-09-13 10:46:39",
+      "ingestion_job_id": "ing_e93f1c14e33e",
+      "sha256": "9c043ad4a0acb01dd6f00fe2dbca60f812ffa981daa5143b24f7c5ec37f64c83"
+    },
+    {
+      "id": "custom_december_2025_1789219725",
+      "title": "December 2025 Flash Report",
+      "filename": "scored_projects_december_2025.json",
+      "month": "December 2025",
+      "badge": "Adaptive PDF",
+      "purpose": "training",
+      "project_count": 1392,
+      "completed_count": 319,
+      "is_active": false,
+      "uploaded_at": "2026-09-12 18:58:45"
+    },
+    {
+      "id": "custom_november_2025_1789219698",
+      "title": "November 2025 Flash Report",
+      "filename": "scored_projects_november_2025.json",
+      "month": "November 2025",
+      "badge": "Adaptive PDF",
+      "purpose": "training",
+      "project_count": 823,
+      "completed_count": 152,
+      "is_active": false,
+      "uploaded_at": "2026-09-12 18:58:18"
+    },
+    {
+      "id": "custom_october_2025_1789219680",
+      "title": "October 2025 Flash Report",
+      "filename": "scored_projects_october_2025.json",
+      "month": "October 2025",
+      "badge": "Adaptive PDF",
+      "purpose": "training",
+      "project_count": 820,
+      "completed_count": 150,
+      "is_active": false,
+      "uploaded_at": "2026-09-12 18:58:00"
+    },
+    {
+      "id": "custom_september_2025_1789219663",
+      "title": "September 2025 Flash Report",
+      "filename": "scored_projects_september_2025.json",
+      "month": "September 2025",
+      "badge": "Adaptive PDF",
+      "purpose": "training",
+      "project_count": 794,
+      "completed_count": 143,
+      "is_active": false,
+      "uploaded_at": "2026-09-12 18:57:43"
+    },
+    {
+      "id": "custom_august_2025_1789219646",
+      "title": "August 2025 Flash Report",
+      "filename": "scored_projects_august_2025.json",
+      "month": "August 2025",
+      "badge": "Adaptive PDF",
+      "purpose": "training",
+      "project_count": 800,
+      "completed_count": 132,
+      "is_active": false,
+      "uploaded_at": "2026-09-12 18:57:26"
+    },
+    {
+      "id": "custom_july_2025_1789219629",
+      "title": "July 2025 Flash Report",
+      "filename": "scored_projects_july_2025.json",
+      "month": "July 2025",
+      "badge": "Adaptive PDF",
+      "purpose": "training",
+      "project_count": 791,
+      "completed_count": 122,
+      "is_active": false,
+      "uploaded_at": "2026-09-12 18:57:09"
+    },
+    {
+      "id": "custom_june_2025_1789219614",
+      "title": "June 2025 Flash Report",
+      "filename": "scored_projects_june_2025.json",
+      "month": "June 2025",
+      "badge": "Adaptive PDF",
+      "purpose": "training",
+      "project_count": 238,
+      "completed_count": 59,
+      "is_active": false,
+      "uploaded_at": "2026-09-12 18:56:54"
+    }
+  ]
+}
